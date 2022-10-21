@@ -1,0 +1,7 @@
+{
+  "parent": "mod_of_the_trio:custom/murasama",
+  "textures": {
+    "0": "mod_of_the_trio:blocks/sama",
+    "particle": "mod_of_the_trio:items/sama"
+  }
+}

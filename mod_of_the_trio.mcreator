@@ -1,0 +1,71 @@
+{
+  "mod_elements": [
+    {
+      "name": "MurasamaRightclicked",
+      "type": "procedure",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "murasama_rightclicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Murasama",
+      "type": "tool",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "murasama"
+    },
+    {
+      "name": "Hammey",
+      "type": "livingentity",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hammey"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "item.mod_of_the_trio.hammey_spawn_egg": "Hammey Spawn Egg",
+      "entity.mod_of_the_trio.hammey": "Hammey",
+      "item.mod_of_the_trio.murasama": "Murasama"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "mod_of_the_trio",
+    "modName": "mod of the trio",
+    "version": "1.0.0",
+    "author": "flori, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Academic Free License v3.0",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.18.2",
+    "modElementsPackage": "net.mcreator.modofthetrio",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202200234517
+}
