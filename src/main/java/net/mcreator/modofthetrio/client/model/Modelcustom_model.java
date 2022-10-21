@@ -1,6 +1,7 @@
 package net.mcreator.modofthetrio.client.model;
 
 import net.minecraft.world.entity.Entity;
+import net.minecraft.util.Mth;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
@@ -88,7 +89,12 @@ public class Modelcustom_model<T extends Entity> extends EntityModel<T> {
 	}
 
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.LeftLeg.xRot = Mth.cos(limbSwing * 1.0F) * -1.0F * limbSwingAmount;
+		this.RightArm.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * limbSwingAmount;
 		this.Head.yRot = netHeadYaw / (180F / (float) Math.PI);
 		this.Head.xRot = headPitch / (180F / (float) Math.PI);
+		this.LeftArm.xRot = Mth.cos(limbSwing * 0.6662F) * limbSwingAmount;
+		this.RightLeg.xRot = Mth.cos(limbSwing * 1.0F) * 1.0F * limbSwingAmount;
+		this.Tail.zRot = Mth.cos(limbSwing * 1.0F) * 1.0F * limbSwingAmount;
 	}
 }
