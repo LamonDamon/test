@@ -8,6 +8,7 @@ import net.minecraftforge.network.NetworkHooks;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.projectile.ThrownPotion;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
@@ -20,12 +21,18 @@ import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.protocol.Packet;
 
+import net.mcreator.modofthetrio.procedures.SamRightClickedOnEntityProcedure;
+import net.mcreator.modofthetrio.procedures.SamPlayerCollidesWithThisEntityProcedure;
+import net.mcreator.modofthetrio.procedures.SamEntityIsHurtProcedure;
 import net.mcreator.modofthetrio.init.ModOfTheTrioModItems;
 import net.mcreator.modofthetrio.init.ModOfTheTrioModEntities;
 
@@ -88,6 +95,7 @@ public class SamEntity extends PathfinderMob {
 
 	@Override
 	public boolean hurt(DamageSource source, float amount) {
+		SamEntityIsHurtProcedure.execute(this.level, this.getX(), this.getY(), this.getZ(), this);
 		if (source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud)
 			return false;
 		if (source == DamageSource.FALL)
@@ -111,6 +119,27 @@ public class SamEntity extends PathfinderMob {
 		if (source.getMsgId().equals("witherSkull"))
 			return false;
 		return super.hurt(source, amount);
+	}
+
+	@Override
+	public InteractionResult mobInteract(Player sourceentity, InteractionHand hand) {
+		ItemStack itemstack = sourceentity.getItemInHand(hand);
+		InteractionResult retval = InteractionResult.sidedSuccess(this.level.isClientSide());
+		super.mobInteract(sourceentity, hand);
+		double x = this.getX();
+		double y = this.getY();
+		double z = this.getZ();
+		Entity entity = this;
+		Level world = this.level;
+
+		SamRightClickedOnEntityProcedure.execute(entity);
+		return retval;
+	}
+
+	@Override
+	public void playerTouch(Player sourceentity) {
+		super.playerTouch(sourceentity);
+		SamPlayerCollidesWithThisEntityProcedure.execute(this);
 	}
 
 	public static void init() {
