@@ -64,11 +64,10 @@ public class Modelsamuel<T extends Entity> extends EntityModel<T> {
 		PartDefinition Tail = partdefinition.addOrReplaceChild("Tail", CubeListBuilder.create(),
 				PartPose.offset(0.0F, 24.0F, 0.0F));
 
-		PartDefinition cube_r2 = Tail
-				.addOrReplaceChild("cube_r2",
-						CubeListBuilder.create().texOffs(0, 10).addBox(-1.0F, -3.6F, -1.1F, 1.0F, 1.0F, 7.0F,
-								new CubeDeformation(0.0F)),
-						PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.3054F, 0.0F, 0.0F));
+		PartDefinition cube_r2 = Tail.addOrReplaceChild("cube_r2",
+				CubeListBuilder.create().texOffs(0, 10).addBox(-0.5F, -0.4897F, -4.1135F, 1.0F, 1.0F, 7.0F,
+						new CubeDeformation(0.0F)),
+				PartPose.offsetAndRotation(-0.5F, -2.0F, 3.8F, -0.3054F, 0.0F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 32, 32);
 	}
@@ -89,8 +88,9 @@ public class Modelsamuel<T extends Entity> extends EntityModel<T> {
 			float headPitch) {
 		this.LeftLeg.xRot = Mth.cos(limbSwing * 1.0F) * -1.0F * limbSwingAmount;
 		this.RightArm.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * limbSwingAmount;
+		this.Head.xRot = headPitch / (180F / (float) Math.PI);
 		this.LeftArm.xRot = Mth.cos(limbSwing * 0.6662F) * limbSwingAmount;
 		this.RightLeg.xRot = Mth.cos(limbSwing * 1.0F) * 1.0F * limbSwingAmount;
-		this.Tail.yRot = headPitch / (180F / (float) Math.PI);
+		this.Tail.xRot = netHeadYaw / (180F / (float) Math.PI);
 	}
 }
