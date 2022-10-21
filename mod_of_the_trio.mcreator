@@ -35,15 +35,25 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "hammey"
+    },
+    {
+      "name": "Sam",
+      "type": "livingentity",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sam"
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
+      "entity.mod_of_the_trio.sam": "Sam",
       "item.mod_of_the_trio.hammey_spawn_egg": "Hammey Spawn Egg",
       "entity.mod_of_the_trio.hammey": "Hammey",
-      "item.mod_of_the_trio.murasama": "Murasama"
+      "item.mod_of_the_trio.murasama": "Murasama",
+      "item.mod_of_the_trio.sam_spawn_egg": "Sam Spawn Egg"
     }
   },
   "foldersRoot": {

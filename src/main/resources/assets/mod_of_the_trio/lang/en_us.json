@@ -1,5 +1,7 @@
 {
+  "entity.mod_of_the_trio.sam": "Sam",
   "item.mod_of_the_trio.hammey_spawn_egg": "Hammey Spawn Egg",
   "entity.mod_of_the_trio.hammey": "Hammey",
-  "item.mod_of_the_trio.murasama": "Murasama"
+  "item.mod_of_the_trio.murasama": "Murasama",
+  "item.mod_of_the_trio.sam_spawn_egg": "Sam Spawn Egg"
 }

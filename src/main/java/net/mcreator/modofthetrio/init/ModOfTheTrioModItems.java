@@ -20,4 +20,6 @@ public class ModOfTheTrioModItems {
 	public static final RegistryObject<Item> MURASAMA = REGISTRY.register("murasama", () -> new MurasamaItem());
 	public static final RegistryObject<Item> HAMMEY = REGISTRY.register("hammey_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModOfTheTrioModEntities.HAMMEY, -16751104, -16711885, new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+	public static final RegistryObject<Item> SAM = REGISTRY.register("sam_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModOfTheTrioModEntities.SAM, -6724096, -10079488, new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 }

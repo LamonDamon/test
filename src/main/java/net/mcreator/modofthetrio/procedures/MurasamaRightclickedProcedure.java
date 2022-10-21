@@ -22,7 +22,7 @@ public class MurasamaRightclickedProcedure {
 			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putBoolean("attackability",
 					(true));
 			if (entity instanceof LivingEntity _entity)
-				_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 16, 5, (false), (false)));
+				_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 19, 3, (false), (false)));
 			if (entity instanceof LivingEntity _entity)
 				_entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 19, 2, (false), (false)));
 			if (entity instanceof Player _player && !_player.level.isClientSide())
